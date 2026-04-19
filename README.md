@@ -92,12 +92,46 @@ Lo que pregunta es si deseas instalar las dependencias y ejecutar el entorno de 
 
 ## Generación del cliente 
 
-Primero nos movemos a la carpeta creada anteriormente (usando los comandos anteriores `cd <NOMBRE>`) y ejecutar los siguientes comandos:
+En `package.json` agregamos las siguientes dependencias:
+
+```json
+  "dependencies": {
+    "@codama/nodes-from-anchor": "^1.4.1",
+    "@codama/renderers-js": "^2.1.0",
+    "@codama/renderers-rust": "^3.0.0",
+    "@solana/kit": "^6.8.0",
+    "@solana/program-client-core": "^6.8.0",
+    "@solana/wallet-adapter-react": "^0.15.39",
+    "@solana/wallet-adapter-react-ui": "^0.9.39",
+    "@solana/wallet-adapter-wallets": "^0.16.1",
+    "@solana/web3.js": "^1.98.4",
+    "buffer": "^6.0.3",
+    "codama": "^1.6.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.58.0",
+    "vite": "^8.0.4"
+  }
+```
+
+
+nos movemos a la carpeta creada anteriormente usando `cd`, e instalamos las dependencias: 
+
 
 ```bash
 npm install
-
-npm install @solana/kit codama buffer 
 ```
 
 Ahora desde Solana Playground descargaremos el IDL 
@@ -210,9 +244,14 @@ import {
 import { address } from '@solana/kit'
 import type { Address, AccountMeta } from '@solana/kit'
 
-// Imports del Cliente generado
+// Instrucciones del Cliente generado
 import { getCrearBibliotecaInstruction } from '../clients/js/src/generated/instructions/crearBiblioteca' 
 import { BIBLIOTECA_PROGRAM_ADDRESS } from '../clients/js/src/generated/programs/biblioteca'
+
+// Cuentas del cliente generado
+const rpc = createSolanaRpc('https://api.devnet.solana.com')
+
+
 ```
 
 Abajo de los imports pegamos las siguientes funciones (fuera del export App):
