@@ -37,7 +37,7 @@ Interfaz descentralizada (dApp) para gestionar *baúles* (vaults) de inversión 
 
 ```bash
 # Clonar el repositorio
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/mr20262030/minibotploymarket.git
 cd minibotpolymarket/minibotpolymarket   # Ajusta la ruta si es necesario
 
 # Instalar dependencias
